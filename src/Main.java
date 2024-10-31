@@ -5,11 +5,18 @@ public class Main {
      * The method combine will return a new one dimensional array of integers.
      * int[] myArray1 = {1,3,5,7,9};
      * int[] myArray2 = {2,4,6,8,10,12,14,16};
-     * zip(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
+     * combine(myArray1, myArray2) → {1,3,5,7,9,2,4,6,8,10,12,14,16}
      */
     public static int[] combine(int[] array1, int[] array2) {
-
-        return null;
+        int len = array1.length + array2.length;
+        int[] re = new int[len];
+        for(int i = 0; i < array1.length; i ++){
+            re[i] = array1[i];
+        }
+        for(int z = array1.length; z < len; z ++){
+            re[z] = array2[z - array1.length];
+        }
+        return re;
 
     }
 
@@ -21,8 +28,18 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-
-        return null;
+        int len = array1.length + array2.length;
+        int[] re = new int[len];
+        for(int i = 0; i < len; i ++){
+            if(i % 2 == 0){
+                re[i] = array1[i/2];
+            }
+            if(i % 2 == 1){
+                re[i] = array2[i/2];
+            }
+        }
+        //24 26
+        return re;
 
     }
 
@@ -34,9 +51,11 @@ public class Main {
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
     public static int[] product(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] re = new int[array1.length];
+        for(int i = 0; i < array1.length; i ++){
+            re[i] = array1[i] * array2[i];
+        }
+        return re;
     }
 
     /**
@@ -56,14 +75,25 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
-
-        return null;
+        int[] re = new int[words.length];
+        for(int i = 0; i < words.length; i ++){
+            re[i] = countCapitalLetters(words[i]);
+        }
+        return re;
 
     }
 
     public static int countCapitalLetters(String word) {
-
-        return 0;
+        int macbeth = 0;
+        for(int i = 0; i < word.length(); i ++){
+            if(Character.isAlphabetic(word.charAt(i))){
+                int balls = word.charAt(i);
+                if(balls <= 90 && balls >= 65){
+                    macbeth++;
+                }
+            }
+        }
+        return macbeth;
 
     }
 
