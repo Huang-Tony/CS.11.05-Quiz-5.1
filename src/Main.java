@@ -80,7 +80,7 @@ public class Main {
             re[i] = countCapitalLetters(words[i]);
         }
         return re;
-
+// EE
     }
 
     public static int countCapitalLetters(String word) {
